@@ -28,4 +28,19 @@ describe Book do
     book.Genre = "Sci-fi"
     book.Genre.should eq("Sci-fi")
   end
+  
+  it 'has a Format' do
+    book = Book.new
+    
+    book.Format = "Hardcopy"
+    book.Format.should eq("Hardcopy")
+  end
+  
+  it 'has a Language' do
+    book = Book.new
+    
+    book.Language = "Pittsburgese"
+    book.Language.should eq("Pittsburgese")
+  end
+
 end
