@@ -18,5 +18,14 @@ describe Library do
     user.CheckOut(book)
     user.CheckIn(book)
     book.CheckedOut.should be_false
-   end
+   end 
+end
+
+describe Book do
+  it 'has a Genre' do
+    book = Book.new
+    
+    book.Genre = "Sci-fi"
+    book.Genre.should eq("Sci-fi")
+  end
 end
