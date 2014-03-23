@@ -8,7 +8,7 @@ describe Library do
     book = Book.new
     
     user.CheckOut(book)
-    book.CheckedOut.should be_true
+    book.Available.should be_true
    end
    
     it 'User can check-in books ' do
@@ -17,7 +17,7 @@ describe Library do
     
     user.CheckOut(book)
     user.CheckIn(book)
-    book.CheckedOut.should be_false
+    book.Available.should be_false
    end 
 end
 

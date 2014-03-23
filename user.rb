@@ -1,11 +1,10 @@
 class User
 
   def CheckOut (book)
-    book.CheckedOut = true
+    book.Available = true
   end
   
   def CheckIn (book)
-    book.CheckedOut = false
-
+    book.Available = false
   end
 end
