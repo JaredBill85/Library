@@ -4,7 +4,7 @@ require_relative 'book.rb'
 
 describe Library do
   let (:user) { User.new }
-  let (:book) { Book.new }    
+  let (:book) { Book.new } 
     
   it 'User can check-out books ' do
     user.CheckOut(book)
@@ -16,6 +16,16 @@ describe Library do
     user.CheckIn(book)
     book.Available.should be_false
   end 
+  
+  it 'user cannot check out more than N books at a time' do
+    user.NumberOfBooksThatCanBeCheckedOut = 2
+    book2 = Book.new
+    book3 = Book.new
+    
+    user.CheckOut(book)
+    user.CheckOut(book2)
+    expect { user.CheckOut(book3) }.to raise_error
+  end
 end
 
 describe Book do
