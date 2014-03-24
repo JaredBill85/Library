@@ -52,6 +52,13 @@ describe User do
       user.Lend(book, user2)
       expect { user.Lend(book2, user2) }.to raise_error
     end  
+    
+    
+    it 'users cannot lend books they do not have' do
+       user.Lend(book, user2)
+      
+       expect { user.Lend(book, user2) }.to raise_error
+    end
   end
 end
 
