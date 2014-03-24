@@ -11,7 +11,11 @@ class User
     if (@NumberOfBooksThatCanBeCheckedOut <= @Books.count)
       raise Exception.new
     end
- 
+   
+   if (@Books.include?(book))
+       raise Exception.new
+    end
+    
     @Books << book
     book.Available = true
   end

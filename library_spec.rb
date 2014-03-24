@@ -26,6 +26,11 @@ describe Library do
     user.CheckOut(book2)
     expect { user.CheckOut(book3) }.to raise_error
   end
+  
+  it ':user cannot borrow the same book twice.' do
+    user.CheckOut(book)
+    expect{ user.CheckOut(book)}.to raise_error
+  end
 end
 
 describe Book do
