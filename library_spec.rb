@@ -31,6 +31,19 @@ describe User do
     user.CheckOut(book)
     expect{ user.CheckOut(book)}.to raise_error
   end
+  
+  it 'user can lend a book to other users' do
+    #TODO - Does this user get it from the library, then loan it?  
+    # Or is it from their personal collection?  
+    # Assumption - User gets the book from the library
+    
+     user.CheckOut(book)
+     user2 = User.new
+     user.Lend(book, user2)
+    
+     user.Books.should be_empty
+     user2.Books.include?(book).should be_true
+  end
 end
 
 describe Book do

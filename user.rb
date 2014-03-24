@@ -24,4 +24,9 @@ class User
     @Books.delete(book)
     book.Available = false
   end
+  
+  def Lend (book, other_user)
+    @Books.delete(book)
+    other_user.Books << book    
+  end
 end
