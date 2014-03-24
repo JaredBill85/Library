@@ -2,7 +2,7 @@ require_relative 'library.rb'
 require_relative 'user.rb'
 require_relative 'book.rb'
 
-describe Library do
+describe User do
   let (:user) { User.new }
   let (:book) { Book.new } 
     
@@ -51,4 +51,6 @@ describe Book do
     book.Language.should eq("Pittsburgese")
   end
 
+  
+  
 end
