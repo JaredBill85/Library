@@ -44,10 +44,18 @@ describe User do
      user.Books.should be_empty
      user2.Books.include?(book).should be_true
   end
+  
+  it 'When lending books user can set a limit on how many books to lend at any given time'  do
+    user2 = User.new
+    user.NumberOfBooksThatCanBeLent = 1
+    book2 = Book.new
+    
+    user.Lend(book, user2)
+    expect { user.Lend(book2, user2) }.to raise_error
+  end
 end
 
 describe Book do
-
   let(:book) { Book.new }
   it 'has a Genre' do
     book.Genre = "Sci-fi"
@@ -63,7 +71,4 @@ describe Book do
     book.Language = "Pittsburgese"
     book.Language.should eq("Pittsburgese")
   end
-
-  
-  
 end
