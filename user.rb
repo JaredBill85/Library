@@ -10,13 +10,8 @@ class User
   end
 
   def CheckOut (book)
-    if (@NumberOfBooksThatCanBeCheckedOut <= @Books.count)
-      raise Exception.new
-    end
-   
-   if (@Books.include?(book))
-       raise Exception.new
-    end
+    raise Exception.new unless (@Books.count < @NumberOfBooksThatCanBeCheckedOut)
+    raise Exception.new unless (!@Books.include?(book))
     
     @Books << book
     book.Available = true
@@ -28,10 +23,8 @@ class User
   end
   
   def Lend (book, other_user)
-    if (@NumberOfBooksThatCanBeLent <= other_user.Books.count)
-      raise Exception.new
-    end
-    
+    raise Exception.new unless (other_user.Books.count < @NumberOfBooksThatCanBeLent)
+
     @Books.delete(book)
     other_user.Books << book    
   end
