@@ -75,7 +75,7 @@ describe Book do
   end
   
   it 'has a Language' do
-    book.Language = "Pittsburgese"
-    book.Language.should eq("Pittsburgese")
+    book.Language = "Pittsburghese"
+    book.Language.should eq("Pittsburghese")
   end
 end
