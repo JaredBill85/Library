@@ -7,13 +7,13 @@ describe User do
     
   it 'User can check-out books ' do
     user.CheckOut(book)
-    book.Available.should be_true
+    book.Available.should be_false
   end
    
   it 'User can check-in books ' do
     user.CheckOut(book)
     user.CheckIn(book)
-    book.Available.should be_false
+    book.Available.should be_true
   end 
   
   it 'user cannot check out more than N books at a time' do

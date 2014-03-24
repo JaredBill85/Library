@@ -14,12 +14,12 @@ class User
     raise Exception.new unless (!@Books.include?(book))
     
     @Books << book
-    book.Available = true
+    book.Available = false
   end
   
   def CheckIn (book)
     @Books.delete(book)
-    book.Available = false
+    book.Available = true
   end
   
   def Lend (book, other_user)
